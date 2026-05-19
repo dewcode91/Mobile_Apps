@@ -26,6 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 Room.databaseBuilder(context, AppDatabase::class.java, "cycle.db")
                     .openHelperFactory(factory)
+                    .fallbackToDestructiveMigration()
                     .build()
                     .also { INSTANCE = it }
             }

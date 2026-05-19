@@ -1,6 +1,7 @@
 package com.bubu.cycle.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -11,4 +12,7 @@ interface PeriodDao {
 
     @Insert
     suspend fun insert(log: PeriodLog)
+
+    @Delete
+    suspend fun delete(log: PeriodLog)
 }

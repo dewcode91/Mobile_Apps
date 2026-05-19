@@ -6,6 +6,10 @@ import java.time.temporal.ChronoUnit
 class CycleRepository(private val dao: PeriodDao) {
     suspend fun getAllLogs(): List<PeriodLog> = dao.getAll()
 
+    suspend fun deleteLog(log: PeriodLog) {
+        dao.delete(log)
+    }
+
     suspend fun addLog(startDate: String, endDate: String) {
         dao.insert(PeriodLog(startDate = startDate, endDate = endDate))
     }
@@ -36,7 +40,7 @@ class CycleRepository(private val dao: PeriodDao) {
 
     suspend fun predictNextPeriodRange(): Pair<LocalDate, LocalDate>? {
         val avgCycle = averageCycleLength() ?: return null
-        val avgPeriod = averagePeriodLength() ?: 5
+        val avgPeriod = averagePeriodLength() ?: 5L
         val lastStart = latestLog()?.start() ?: return null
         val nextStart = lastStart.plusDays(avgCycle)
         val nextEnd = nextStart.plusDays(avgPeriod - 1)
