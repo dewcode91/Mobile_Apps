@@ -101,7 +101,7 @@ private fun CalendarGrid(
     }
 
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        DayOfWeek.values().forEach { day ->
+        DayOfWeek.entries.forEach { day ->
             Text(
                 text = day.name.take(3),
                 modifier = Modifier.weight(1f),

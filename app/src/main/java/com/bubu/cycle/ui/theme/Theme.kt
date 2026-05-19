@@ -1,5 +1,6 @@
 package com.bubu.cycle.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -17,5 +18,6 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun CycleTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colorScheme = LightColors, content = content)
+    val colorScheme = if (isSystemInDarkTheme()) DarkColors else LightColors
+    MaterialTheme(colorScheme = colorScheme, content = content)
 }

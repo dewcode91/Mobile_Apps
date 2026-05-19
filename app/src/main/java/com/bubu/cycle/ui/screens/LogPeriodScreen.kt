@@ -1,8 +1,11 @@
 package com.bubu.cycle.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
@@ -51,7 +54,7 @@ fun LogPeriodScreen() {
                     try {
                         val start = LocalDate.parse(startDate.trim(), InputFormatter)
                         val end = LocalDate.parse(endDate.trim(), InputFormatter)
-                        require(!end.isBefore(start))
+                        require(!end.isBefore(start)) { "End date must not be before start date" }
                         repo.addLog(start.toString(), end.toString())
                         startDate = ""
                         endDate = ""
@@ -59,7 +62,7 @@ fun LogPeriodScreen() {
                         refreshKey++
                         ReminderScheduler.ensureDailyReminder(context)
                     } catch (e: Exception) {
-                        message = "Please enter valid dates (DD-MM-YYYY)"
+                        message = "Please enter valid dates (DD-MM-YYYY) with end ≥ start"
                     }
                 }
             },
@@ -77,7 +80,27 @@ fun LogPeriodScreen() {
                 logs.take(5).forEach { log ->
                     val start = log.start().format(InputFormatter)
                     val end = log.end().format(InputFormatter)
-                    Text("$start → $end")
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("$start → $end", modifier = Modifier.weight(1f))
+                        IconButton(
+                            onClick = {
+                                scope.launch {
+                                    repo.deleteLog(log)
+                                    refreshKey++
+                                    message = "Entry deleted"
+                                    ReminderScheduler.ensureDailyReminder(context)
+                                }
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Delete,
+                                contentDescription = "Delete log entry"
+                            )
+                        }
+                    }
                 }
             }
         }
