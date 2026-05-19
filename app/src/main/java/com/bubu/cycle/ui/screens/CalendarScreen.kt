@@ -193,7 +193,7 @@ private fun DayCell(
         ovulation -> MaterialTheme.colorScheme.tertiary.copy(alpha = STATUS_DAY_ALPHA)
         else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = EMPTY_DAY_ALPHA)
     }
-    val foreground = if (date == null) Color.Transparent else MaterialTheme.colorScheme.onSurface
+    val foreground = MaterialTheme.colorScheme.onSurface
     val markers = listOf(
         logged to MaterialTheme.colorScheme.primary,
         predicted to MaterialTheme.colorScheme.secondary,
