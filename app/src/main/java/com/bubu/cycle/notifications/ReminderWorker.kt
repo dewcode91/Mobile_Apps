@@ -39,7 +39,7 @@ class ReminderWorker(
         val ovulation = repo.predictOvulationWindow()?.let {
             "${it.first.format(DateFormatter)} - ${it.second.format(DateFormatter)}"
         } ?: "Not enough data"
-        val symptomsPrompt = settings.trackedSymptoms
+        val symptomsText = settings.trackedSymptoms
             .toList()
             .sorted()
             .joinToString()
@@ -48,7 +48,7 @@ class ReminderWorker(
         val message = buildString {
             appendLine("Next period: $nextPeriod")
             appendLine("Ovulation: $ovulation")
-            append("Track today: $symptomsPrompt")
+            append("Track today: $symptomsText")
         }
         showNotification("Cycle reminder", message)
         return Result.success()

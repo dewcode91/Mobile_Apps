@@ -25,7 +25,7 @@ class SettingsRepository(context: Context) {
             .putBoolean("reminder_enabled", settings.enabled)
             .putInt("reminder_hour", settings.hour)
             .putInt("reminder_minute", settings.minute)
-            .putStringSet("tracked_symptoms", settings.trackedSymptoms.toSet())
+            .putStringSet("tracked_symptoms", settings.trackedSymptoms)
             .apply()
     }
 }
