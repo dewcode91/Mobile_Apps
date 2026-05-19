@@ -9,7 +9,7 @@ class BackupRepository(
     private val settingsRepository: SettingsRepository
 ) {
     suspend fun exportBackupJson(): String {
-        val logs = cycleRepository.getAllLogs().sortedByDescending { it.startDate }
+        val logs = cycleRepository.getAllLogs()
         val settings = settingsRepository.getReminderSettings()
 
         val logsJson = JSONArray()

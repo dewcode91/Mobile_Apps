@@ -45,10 +45,14 @@ fun CalendarScreen() {
     var analytics by remember { mutableStateOf(CalendarAnalytics()) }
 
     LaunchedEffect(month) {
-        logs = repo.getAllLogs()
-        predictedPeriod = repo.predictNextPeriodRange()
-        ovulationWindow = repo.predictOvulationWindow()
-        analytics = buildMonthAnalytics(month, logs, predictedPeriod, ovulationWindow)
+        val loadedLogs = repo.getAllLogs()
+        val loadedPredictedPeriod = repo.predictNextPeriodRange()
+        val loadedOvulationWindow = repo.predictOvulationWindow()
+
+        logs = loadedLogs
+        predictedPeriod = loadedPredictedPeriod
+        ovulationWindow = loadedOvulationWindow
+        analytics = buildMonthAnalytics(month, loadedLogs, loadedPredictedPeriod, loadedOvulationWindow)
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
