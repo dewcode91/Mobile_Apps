@@ -3,6 +3,7 @@ package com.bubu.cycle.data
 import org.json.JSONArray
 import org.json.JSONObject
 import java.time.Instant
+import java.time.format.DateTimeFormatter
 
 class BackupRepository(
     private val cycleRepository: CycleRepository,
@@ -24,7 +25,7 @@ class BackupRepository(
         return JSONObject()
             .put("app", "Cycle Tracker")
             .put("version", 1)
-            .put("exportedAt", Instant.now().toString())
+            .put("exportedAt", DateTimeFormatter.ISO_INSTANT.format(Instant.now()))
             .put(
                 "reminderSettings",
                 JSONObject()
