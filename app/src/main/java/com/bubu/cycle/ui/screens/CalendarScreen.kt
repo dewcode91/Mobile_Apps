@@ -30,7 +30,7 @@ private val MARKER_SIZE = 5.dp
 private data class CalendarAnalytics(
     val loggedDays: Int = 0,
     val predictedDays: Int = 0,
-    val ovulationDays: Int = 0,
+    val fertileDays: Int = 0,
     val periodEntries: Int = 0
 )
 
@@ -86,7 +86,7 @@ private fun AnalyticsSummary(analytics: CalendarAnalytics) {
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
         AnalyticsPill("Logged", analytics.loggedDays, Modifier.weight(1f))
         AnalyticsPill("Predicted", analytics.predictedDays, Modifier.weight(1f))
-        AnalyticsPill("Fertile", analytics.ovulationDays, Modifier.weight(1f))
+        AnalyticsPill("Fertile", analytics.fertileDays, Modifier.weight(1f))
     }
     Text(
         text = "Entries this month: ${analytics.periodEntries}",
@@ -256,7 +256,7 @@ private fun buildMonthAnalytics(
     return CalendarAnalytics(
         loggedDays = loggedDays,
         predictedDays = predictedDays,
-        ovulationDays = ovulationDays,
+        fertileDays = ovulationDays,
         periodEntries = periodEntries
     )
 }

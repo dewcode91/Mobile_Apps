@@ -38,7 +38,10 @@ class BackupRepository(
                 .put("periodLogs", logsJson)
                 .toString(2)
         } catch (e: Exception) {
-            throw IllegalStateException("Unable to export backup JSON", e)
+            throw IllegalStateException(
+                "Failed to export backup: ensure period logs and settings are accessible. ${e.message.orEmpty()}",
+                e
+            )
         }
     }
 }
