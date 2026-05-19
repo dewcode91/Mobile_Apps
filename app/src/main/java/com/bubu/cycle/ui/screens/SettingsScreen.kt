@@ -140,11 +140,11 @@ fun SettingsScreen() {
                                 .putExtra(Intent.EXTRA_TEXT, exportJson)
                             context.startActivity(Intent.createChooser(shareIntent, "Export backup"))
                             message = "Backup copied to clipboard and share sheet opened"
-                        } catch (_: Exception) {
-                            message = "Backup copied to clipboard"
+                        } catch (shareError: Exception) {
+                            message = "Backup copied to clipboard (share unavailable: ${shareError.localizedMessage ?: "unknown"})"
                         }
-                    } catch (_: Exception) {
-                        message = "Backup export failed"
+                    } catch (exportError: Exception) {
+                        message = "Failed to generate backup: ${exportError.localizedMessage ?: "unknown error"}"
                     }
                 }
             },

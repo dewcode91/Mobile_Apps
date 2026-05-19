@@ -39,7 +39,7 @@ class BackupRepository(
                 .toString(2)
         } catch (e: Exception) {
             throw IllegalStateException(
-                "Failed to export backup: ensure period logs and settings are accessible. ${e.message.orEmpty()}",
+                "Failed to serialize backup data. ${e.message.orEmpty()}",
                 e
             )
         }
