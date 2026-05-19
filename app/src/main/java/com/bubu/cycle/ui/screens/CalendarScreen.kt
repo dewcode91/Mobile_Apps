@@ -208,7 +208,9 @@ private fun DayCell(
         contentAlignment = Alignment.Center
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(vertical = 4.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(vertical = 4.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
         ) {

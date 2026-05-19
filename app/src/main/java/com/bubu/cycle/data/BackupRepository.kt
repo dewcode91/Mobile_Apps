@@ -24,7 +24,7 @@ class BackupRepository(
         return JSONObject()
             .put("app", "Cycle Tracker")
             .put("version", 1)
-            .put("exportedAtUtc", Instant.now().toString())
+            .put("exportedAt", Instant.now().toString())
             .put(
                 "reminderSettings",
                 JSONObject()
