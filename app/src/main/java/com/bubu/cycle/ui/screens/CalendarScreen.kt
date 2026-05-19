@@ -23,6 +23,9 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
 private val MonthFormatter = DateTimeFormatter.ofPattern("MMMM yyyy")
+private const val STATUS_DAY_ALPHA = 0.24f
+private const val EMPTY_DAY_ALPHA = 0.18f
+private val MARKER_SIZE = 5.dp
 
 private data class CalendarAnalytics(
     val loggedDays: Int = 0,
@@ -181,10 +184,10 @@ private fun DayCell(
     val today = date == LocalDate.now()
 
     val background = when {
-        logged -> MaterialTheme.colorScheme.primary.copy(alpha = 0.24f)
-        predicted -> MaterialTheme.colorScheme.secondary.copy(alpha = 0.24f)
-        ovulation -> MaterialTheme.colorScheme.tertiary.copy(alpha = 0.24f)
-        else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.18f)
+        logged -> MaterialTheme.colorScheme.primary.copy(alpha = STATUS_DAY_ALPHA)
+        predicted -> MaterialTheme.colorScheme.secondary.copy(alpha = STATUS_DAY_ALPHA)
+        ovulation -> MaterialTheme.colorScheme.tertiary.copy(alpha = STATUS_DAY_ALPHA)
+        else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = EMPTY_DAY_ALPHA)
     }
     val foreground = if (date == null) Color.Transparent else MaterialTheme.colorScheme.onSurface
     val markers = listOf(
@@ -224,7 +227,7 @@ private fun DayCell(
                 markers.forEach { color ->
                     Box(
                         modifier = Modifier
-                            .size(5.dp)
+                            .size(MARKER_SIZE)
                             .background(color, CircleShape)
                     )
                 }
