@@ -13,6 +13,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bubu.cycle.data.AppDatabase
 import com.bubu.cycle.data.CycleRepository
+import com.bubu.cycle.data.SettingsRepository
 import java.time.format.DateTimeFormatter
 
 private const val CHANNEL_ID = "cycle_reminders"
@@ -33,12 +34,22 @@ class ReminderWorker(
         }
 
         val repo = CycleRepository(AppDatabase.get(applicationContext).periodDao())
+        val settings = SettingsRepository(applicationContext).getReminderSettings()
         val nextPeriod = repo.predictNextPeriodStart()?.format(DateFormatter) ?: "Not enough data"
         val ovulation = repo.predictOvulationWindow()?.let {
             "${it.first.format(DateFormatter)} - ${it.second.format(DateFormatter)}"
         } ?: "Not enough data"
+        val symptomsPrompt = settings.trackedSymptoms
+            .toList()
+            .sorted()
+            .joinToString()
+            .ifBlank { "energy, mood, cramps" }
 
-        val message = "Next period: $nextPeriod\nOvulation: $ovulation"
+        val message = buildString {
+            appendLine("Next period: $nextPeriod")
+            appendLine("Ovulation: $ovulation")
+            append("Track today: $symptomsPrompt")
+        }
         showNotification("Cycle reminder", message)
         return Result.success()
     }
