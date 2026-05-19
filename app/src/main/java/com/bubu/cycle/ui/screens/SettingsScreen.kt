@@ -130,14 +130,22 @@ fun SettingsScreen() {
         Button(
             onClick = {
                 scope.launch {
-                    val exportJson = backupRepo.exportBackupJson()
-                    clipboardManager.setText(AnnotatedString(exportJson))
-                    val shareIntent = Intent(Intent.ACTION_SEND)
-                        .setType("application/json")
-                        .putExtra(Intent.EXTRA_SUBJECT, "Cycle Tracker Offline Backup")
-                        .putExtra(Intent.EXTRA_TEXT, exportJson)
-                    context.startActivity(Intent.createChooser(shareIntent, "Export backup"))
-                    message = "Backup copied to clipboard and ready to share offline"
+                    try {
+                        val exportJson = backupRepo.exportBackupJson()
+                        clipboardManager.setText(AnnotatedString(exportJson))
+                        try {
+                            val shareIntent = Intent(Intent.ACTION_SEND)
+                                .setType("application/json")
+                                .putExtra(Intent.EXTRA_SUBJECT, "Cycle Tracker Offline Backup")
+                                .putExtra(Intent.EXTRA_TEXT, exportJson)
+                            context.startActivity(Intent.createChooser(shareIntent, "Export backup"))
+                            message = "Backup copied to clipboard and share sheet opened"
+                        } catch (_: Exception) {
+                            message = "Backup copied to clipboard"
+                        }
+                    } catch (_: Exception) {
+                        message = "Backup export failed"
+                    }
                 }
             },
             modifier = Modifier.fillMaxWidth()
