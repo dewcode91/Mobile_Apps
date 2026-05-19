@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter
 
 private val MonthFormatter = DateTimeFormatter.ofPattern("MMMM yyyy")
 private const val STATUS_DAY_ALPHA = 0.24f
-private const val EMPTY_DAY_ALPHA = 0.18f
+private const val DEFAULT_DAY_ALPHA = 0.18f
 private val MARKER_SIZE = 5.dp
 
 private data class CalendarAnalytics(
@@ -191,7 +191,7 @@ private fun DayCell(
         logged -> MaterialTheme.colorScheme.primary.copy(alpha = STATUS_DAY_ALPHA)
         predicted -> MaterialTheme.colorScheme.secondary.copy(alpha = STATUS_DAY_ALPHA)
         ovulation -> MaterialTheme.colorScheme.tertiary.copy(alpha = STATUS_DAY_ALPHA)
-        else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = EMPTY_DAY_ALPHA)
+        else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = DEFAULT_DAY_ALPHA)
     }
     val foreground = MaterialTheme.colorScheme.onSurface
     val markers = listOf(
