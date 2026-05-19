@@ -1,0 +1,4 @@
+com.bubu.cycle.test.app-androidTest-0 /Users/dewanandram/Downloads/mobile-apps-main/cycle-tracker/app/build/generated/res/resValues/androidTest/debug
+com.bubu.cycle.test.app-mergeDebugAndroidTestResources-1 /Users/dewanandram/Downloads/mobile-apps-main/cycle-tracker/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.bubu.cycle.test.app-mergeDebugAndroidTestResources-2 /Users/dewanandram/Downloads/mobile-apps-main/cycle-tracker/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.bubu.cycle.test.app-merged_res-3 /Users/dewanandram/Downloads/mobile-apps-main/cycle-tracker/app/build/intermediates/merged_res/debugAndroidTest
