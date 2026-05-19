@@ -18,11 +18,14 @@ This is a **starter** Android app for tracking menstruation cycles. It is **offl
 - Navigation bar icons: each tab now displays a meaningful Material icon
 - Safer Room setup: `fallbackToDestructiveMigration()` prevents crashes on schema changes
 - Code quality: replaced deprecated `DayOfWeek.values()` with `DayOfWeek.entries`; explicit `5L` literal in period-length fallback; clearer `require()` error message in log input validation
+- Calendar improvements: richer day styling, in-month analytics, and today highlighting
+- Notification messaging: reminders now include symptom tracking prompts
+- Offline backup/export: settings now provide a local JSON backup export flow
 
 ## Next steps
-- Add richer calendar styling and analytics
-- Improve notification messaging with symptom tracking
-- Add backups/export (still offline) if needed
+- Add backup restore from exported JSON
+- Add more customizable symptom templates
+- Add trend charts for symptom and cycle history
 
 ## Build
 Open the project root in Android Studio and run the `app` configuration.
