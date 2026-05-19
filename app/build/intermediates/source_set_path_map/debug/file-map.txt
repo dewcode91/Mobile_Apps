@@ -47,10 +47,10 @@ com.bubu.cycle.app-runtime-release-45 /Users/dewanandram/.gradle/caches/transfor
 com.bubu.cycle.app-ui-tooling-preview-release-46 /Users/dewanandram/.gradle/caches/transforms-3/f239faf502cad307d674eb9438dd6cc0/transformed/ui-tooling-preview-release/res
 com.bubu.cycle.app-lifecycle-process-2.6.1-47 /Users/dewanandram/.gradle/caches/transforms-3/f96262b739e7235dd07a97d871a1b1da/transformed/lifecycle-process-2.6.1/res
 com.bubu.cycle.app-core-ktx-1.12.0-48 /Users/dewanandram/.gradle/caches/transforms-3/ff6587493ebdc791c50ad8995c78d2de/transformed/core-ktx-1.12.0/res
-com.bubu.cycle.app-pngs-49 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/build/generated/res/pngs/debug
-com.bubu.cycle.app-resValues-50 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/build/generated/res/resValues/debug
-com.bubu.cycle.app-packageDebugResources-51 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.bubu.cycle.app-packageDebugResources-52 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.bubu.cycle.app-merged_res-53 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/build/intermediates/merged_res/debug
-com.bubu.cycle.app-debug-54 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/src/debug/res
-com.bubu.cycle.app-main-55 /Users/dewanandram/Downloads/Mobile-Apps/cycle-tracker/app/src/main/res
+com.bubu.cycle.app-pngs-49 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/build/generated/res/pngs/debug
+com.bubu.cycle.app-resValues-50 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/build/generated/res/resValues/debug
+com.bubu.cycle.app-packageDebugResources-51 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.bubu.cycle.app-packageDebugResources-52 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.bubu.cycle.app-merged_res-53 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/build/intermediates/merged_res/debug
+com.bubu.cycle.app-debug-54 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/src/debug/res
+com.bubu.cycle.app-main-55 /Users/dewanandram/Mobile-Apps/cycle-tracker/app/src/main/res
