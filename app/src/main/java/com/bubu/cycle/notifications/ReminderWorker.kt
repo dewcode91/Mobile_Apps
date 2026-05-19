@@ -43,7 +43,7 @@ class ReminderWorker(
         val symptomsText = settings.trackedSymptoms
             .toList()
             .sorted()
-            .joinToString()
+            .joinToString(separator = ", ")
             .ifBlank { DEFAULT_SYMPTOM_PROMPT }
 
         val message = buildString {
