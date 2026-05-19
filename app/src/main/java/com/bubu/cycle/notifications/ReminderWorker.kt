@@ -13,6 +13,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bubu.cycle.data.AppDatabase
 import com.bubu.cycle.data.CycleRepository
+import com.bubu.cycle.data.DEFAULT_SYMPTOM_PROMPT
 import com.bubu.cycle.data.SettingsRepository
 import java.time.format.DateTimeFormatter
 
@@ -43,7 +44,7 @@ class ReminderWorker(
             .toList()
             .sorted()
             .joinToString()
-            .ifBlank { "energy, mood, cramps" }
+            .ifBlank { DEFAULT_SYMPTOM_PROMPT }
 
         val message = buildString {
             appendLine("Next period: $nextPeriod")

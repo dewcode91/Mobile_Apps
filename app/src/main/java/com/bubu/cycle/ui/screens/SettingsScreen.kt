@@ -26,6 +26,7 @@ import com.bubu.cycle.data.BackupRepository
 import com.bubu.cycle.data.CycleRepository
 import com.bubu.cycle.data.SettingsRepository
 import com.bubu.cycle.data.ReminderSettings
+import com.bubu.cycle.data.DEFAULT_SYMPTOM_OPTIONS
 import com.bubu.cycle.notifications.ReminderScheduler
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,7 @@ fun SettingsScreen() {
     val cycleRepo = remember { CycleRepository(AppDatabase.get(context).periodDao()) }
     val backupRepo = remember { BackupRepository(cycleRepo, repo) }
     val scope = rememberCoroutineScope()
-    val symptomOptions = remember { listOf("Cramps", "Bloating", "Headache", "Mood swings", "Low energy") }
+    val symptomOptions = remember { DEFAULT_SYMPTOM_OPTIONS }
 
     var enabled by remember { mutableStateOf(true) }
     var hour by remember { mutableStateOf("9") }
