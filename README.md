@@ -1,4 +1,4 @@
-# Cycle Tracker (Starter)
+# Period Tracker
 
 This is a **starter** Android app for tracking menstruation cycles. It is **offline-only**, uses **local encrypted storage**, and includes functional UI for logging, calendar, predictions, and reminders.
 
